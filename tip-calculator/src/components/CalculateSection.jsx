@@ -1,15 +1,23 @@
 import { Stack } from "@chakra-ui/react";
-import React from "react";
+import React, { useState } from "react";
 import Bill from "./Bill";
 import NumberPeople from "./NumberPeople";
 import SelectTip from "./SelectTip";
 
-function CalculateSection() {
+function CalculateSection({
+  handleBillInput,
+  handlePeopleInput,
+  handleSelectTip,
+  handleCustomPercentageInput,
+}) {
   return (
-    <Stack paddingY={6} paddingX={6} spacing={4}>
-      <Bill />
-      <SelectTip />
-      <NumberPeople />
+    <Stack spacing={4}>
+      <Bill handleBillInput={handleBillInput} />
+      <SelectTip
+        handleSelectTip={handleSelectTip}
+        handleCustomPercentageInput={handleCustomPercentageInput}
+      />
+      <NumberPeople handlePeopleInput={handlePeopleInput} />
     </Stack>
   );
 }
